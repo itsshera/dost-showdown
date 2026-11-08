@@ -1,0 +1,8 @@
+﻿{
+  "id": "mitansh",
+  "modelUrl": "/assets/characters/mitansh/model.glb",
+  "modelScale": 1,
+  "modelYOffset": 0,
+  "modelRotation": 0,
+  "clips": ["idle", "walk", "backwalk", "jump", "crouch", "block", "punch", "kick", "special", "hit", "stunned", "knockdown", "victory", "defeat"]
+}

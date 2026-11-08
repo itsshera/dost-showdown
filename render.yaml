@@ -1,0 +1,22 @@
+# Free single-service deploy on Render (https://render.com).
+# One Node web service serves the built game and the authoritative Socket.IO
+# server on the same origin, so online play works without a second host.
+#
+# 1. Push this folder to a GitHub repo.
+# 2. Render Dashboard -> New -> Blueprint -> pick the repo.
+# 3. Render creates the service below. Open the generated https://*.onrender.com URL.
+#
+# Free instances sleep after inactivity and wake on the next request (first load
+# can take ~30s). WebSockets are supported on the free plan.
+services:
+  - type: web
+    name: dost-showdown
+    env: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm run server
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 22.12.0
